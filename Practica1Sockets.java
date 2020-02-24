@@ -1,1 +1,4 @@
-asf,PKT`LA`KYOKSOKUYOKSUDKUPL
+main cosas {
+
+    holaquetal;
+}
