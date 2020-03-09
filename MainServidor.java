@@ -1,8 +1,5 @@
-package sockets.main;
-
-import java.io.IOException;
-import sockets.servidor.Servidor;
-
+import java.io.*;
+import java.net.*;
 
 //Clase principal que hará uso del servidor
 public class MainServidor

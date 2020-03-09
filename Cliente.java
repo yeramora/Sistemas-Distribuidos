@@ -1,9 +1,5 @@
-
-package sockets.cliente;
-
-import java.io.DataOutputStream;
-import java.io.IOException;
-import sockets.conexion.Conexion;
+import java.io.*;
+import java.net.*;
 
 public class Cliente extends Conexion
 {

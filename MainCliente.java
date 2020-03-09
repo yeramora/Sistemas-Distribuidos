@@ -1,8 +1,5 @@
-package sockets.main;
-
-import java.io.IOException;
-import sockets.cliente.Cliente;
-
+import java.io.*;
+import java.net.*;
 
 //Clase principal que hará uso del cliente
 public class MainCliente
