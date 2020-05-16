@@ -24,55 +24,67 @@ section{
     height: auto;
 }
 
-#algo{
-  position: relative;
-  outline: none;
-  text-decoration: none;
-  border-radius: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  text-transform: uppercase;
-  height: 60px;
-  width: 210px;
-  opacity: 1;
-  background-color: #ffffff;
-  border: 1px solid rgba(22, 76, 167, 0.6);
-  span 
-      color: rgba(22, 76, 167, 1);
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.7px;
-  &:hover 
-      animation: rotate 0.7s ease-in-out both;
-      span
-          animation: storm 0.7s ease-in-out both;
-          animation-delay: 0.06s;
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+    position: relative;
 }
-    
-    
-@keyframes rotate{
-    0%
-        transform: rotate(0deg) translate3d(0, 0, 0);
-    25%
-        transform: rotate(3deg) translate3d(0, 0, 0);
-    50%
-        transform: rotate(-3deg) translate3d(0, 0, 0);
-    75%
-        transform: rotate(1deg) translate3d(0, 0, 0);
-    100%
-        transform: rotate(0deg) translate3d(0, 0, 0);
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
-@keyframes storm {
-    0%;
-        transform: translate3d( 0, 0, 0) translateZ(0);
-    25%;
-        transform: translate3d( 4px, 0, 0) translateZ(0);
-    50%;
-        transform: translate3d( -3px, 0, 0) translateZ(0);
-    75%;
-        transform: translate3d( 2px, 0, 0) translateZ(0);
-    100%;
-        transform: translate3d( 0, 0, 0) translateZ(0);
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-white::after {
+    background-color: #fff;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    animation: moveInBottom 5s ease-out;
+    animation-fill-mode: backwards;
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
 }
