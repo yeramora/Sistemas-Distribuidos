@@ -75,7 +75,7 @@ function createxto3(e) {
     b3.innerHTML = "Superficie: ";
     p3.appendChild(b3);
     p3.innerHTML += e.superficie;
-    sec.appendChild(p);
+    sec.appendChild(p3);
     titulo.innerHTML = e.denominacion;
     if(e.denominacion==null){titulo.innerHTML = e.nombre_actividad}
    
@@ -163,6 +163,9 @@ function datosvolumen() {
 
 function estancias(id) {
     if(id!=-1){
+        if(id=='0028'){
+            window.alert("No hay informacion en el servidor");
+       }
     document.getElementById('flex').innerHTML = "";
     let url = 'https://www.sigua.ua.es/api/pub/estancia/edificio/'+id+'/items';
     console.log(url);
@@ -171,11 +174,40 @@ function estancias(id) {
             
             respuesta.json().then(function(datos){
                console.log(datos.features);
-                for(let i = 0; i<20;i++){
-                    console.log(datos.features[i]);
-                    console.log(datos.features[i].properties);
-                    console.log(datos.features[i].properties.superficie);
+               let cosa = datos.features.length;
+                if(datos.features.length>20) { cosa=20; }
+                for(let i = 0; i<cosa;i++){
                     createxto3(datos.features[i].properties);
+                }
+               }
+            );
+        }
+        else {
+            console.log(respuesta);
+           console.log("error");
+        }
+    });
+    return false;
+}
+}
+
+function departamentos() {
+    num = document.getElementById('numeros').value;
+    console.log(num);
+    if(num != "") {
+        document.getElementById('flex').innerHTML = "";
+    let url = 'https://www.sigua.ua.es/api/agregados/seo/edificio/all/items';
+    console.log(url);
+    fetch(url, {method:'GET'}).then(function(respuesta){
+        if( respuesta.ok){
+            
+            respuesta.json().then(function(datos){
+                console.log(datos);
+                for(let i = 0; i<datos.length;i++){
+                    if(datos[i].ocupantes>num) {
+                        createxto2(datos[i]);
+                    }
+                    
                 }
             });
         }
@@ -185,5 +217,5 @@ function estancias(id) {
         }
     });
     return false;
-}
+    }
 }
