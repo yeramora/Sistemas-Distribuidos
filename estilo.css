@@ -12,17 +12,6 @@ html:before{
     opacity:0.7;
 }
 
-section{
-    text-align: center;
-    position: relative;
-}
-
-.funciones{
-    background-color: white;
-    margin: auto;
-    width: auto;
-    height: auto;
-}
 
 .btn:link,
 .btn:visited {
@@ -87,4 +76,69 @@ section{
         opacity: 1;
         transform: translateY(0px);
     }
+}
+
+
+section{
+    text-align: center;
+    position: relative;
+}
+
+.funciones>h1{
+    font-size: x-large;
+}
+
+
+.funciones{
+    background-color: white;
+    margin: auto;
+    width: auto;
+    height: auto;
+    border-radius: 25px;
+}
+
+
+#flex{
+    align-self: auto;
+    flex: content;
+    display: block;
+    margin-top: auto;
+    columns: 3;
+    margin-top: auto;
+}
+
+#flex>article>section>b{
+    background-color: white;
+    margin: auto;
+}
+
+#flex>article>section>b>p{
+   border-top:1px solid black;
+}
+
+#flex>article>section{
+    background-color: rgb(71, 71, 71);
+    columns: 2;
+}
+
+#flex>article{
+    background-color: rgb(116, 116, 116);
+    
+    
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border: 3px solid black;
+    margin: 5em;
+
+}
+
+#flex>article>h2{
+    border-bottom: 2px solid black;
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;  
 }

@@ -2,7 +2,6 @@ function createxto(e) {
     console.log(e);
     let art = document.createElement('article');
     let titulo = document.createElement('h2');
-    let divv = document.createElement('div');
     let sec = document.createElement('section');
     let p = document.createElement('p');
     let b = document.createElement('b');
