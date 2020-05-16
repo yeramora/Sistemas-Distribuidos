@@ -16,15 +16,17 @@
   <section class = "funciones">
     <h1>Funciones</h1>
     <div class="text-box">
-      <a onclick="todosedificios();" href="#" class="btn btn-white btn-animate">click me</a>
+      <button onclick="todosedificios();">Edificios</button> <br>
     </div>
     <div class="text-box">
-      <a onclick="datosvolumen();" href="#" class="btn btn-white btn-animate">click me</a>
+      <button onclick="datosvolumen();">Datos de Volumen</button> <br>
+
     </div>
     <form>
       <label for="categoria">Parte 3 elegir edificio</label>
       <select class="selectcat" name="categoria" id="categoria" onchange="estancias(this.value)">
-        </select>
+      <option value="-1" selected>-------</option>  
+      </select>
     </form>
     <div id="flex">
 

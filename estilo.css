@@ -79,6 +79,9 @@ html:before{
 }
 
 
+
+
+
 section{
     text-align: center;
     position: relative;
@@ -101,7 +104,7 @@ section{
 #flex{
     align-self: auto;
     flex: content;
-    display: block;
+    display: line;
     margin-top: auto;
     margin-top: auto;
 }
