@@ -16,23 +16,24 @@
   <section class = "funciones">
     <h1>Funciones</h1>
     <div class="text-box">
-      <button onclick="todosedificios();">Edificios</button> <br>
-    </div>
-    <div class="text-box">
+      <button onclick="todosedificios();">Edificios</button>
+      
       <button onclick="datosvolumen();">Datos de Volumen</button> <br>
-
     </div>
-    <form>
-      <label for="categoria">Parte 3 elegir edificio</label>
-      <select class="selectcat" name="categoria" id="categoria" onchange="estancias(this.value)">
-      <option value="-1" selected>-------</option>  
-      </select>
-    </form>
-    <form>
-      <label for="nums">Listado de departamentos</label>
-      <input type="number" name="nums" id="numeros" placeholder="max ocupantes" min=0 required></input>
-      <button type="button" onclick="departamentos()">Filtrar</button>
-    </form>
+    <div>
+      <form>
+        <label for="categoria">Parte 3 elegir edificio</label>
+        <select class="selectcat" name="categoria" id="categoria" onchange="estancias(this.value)">
+        <option value="-1" selected>-------</option>  
+        </select>
+      </form>
+      <form>
+        <label for="nums">Listado de departamentos</label>
+        <input type="number" name="nums" id="numeros" placeholder="max ocupantes" min=0 required></input>
+        <button type="button" onclick="departamentos()">Filtrar</button>
+      </form>
+    </div>
+    
     <div id="flex">
 
     </div>
