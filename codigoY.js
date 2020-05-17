@@ -102,7 +102,7 @@ function createxto3(e) {
     sec.appendChild(p);
     b3.innerHTML = "Superficie: ";
     p3.appendChild(b3);
-    p3.innerHTML += e.superficie;
+    p3.innerHTML += e.superficie + ' m2';
     sec.appendChild(p3);
     b2.innerHTML = "Actividad: ";
     p2.appendChild(b2);
