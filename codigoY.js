@@ -44,6 +44,9 @@ function createxto2(e) {
     let b2 = document.createElement('b');
     let p3 = document.createElement('p');
     let b3 = document.createElement('b');
+    let p4 = document.createElement('button');
+    var res = e.id.slice(1, 5);
+    p4.className="btn";
     p.className="textocarta";
     p2.className="textocarta";
     p3.className="textocarta";
@@ -62,6 +65,9 @@ function createxto2(e) {
     p3.appendChild(b3);
     p3.innerHTML += e.superficie + ' m2';
     sec.appendChild(p3);
+    p4.innerHTML = "ver estancias";
+    p4.onclick= function() {estancias(res)};
+    sec.appendChild(p4);
     titulo.innerHTML = e.id;
     art.appendChild(titulo);
     art.appendChild(sec);
@@ -106,7 +112,7 @@ function createxto3(e) {
     p4.onclick= function() {actividades(e.id_actividad,e.lat)};
     sec.appendChild(p4);
     titulo.innerHTML = e.denominacion;
-    if(e.denominacion==null){titulo.innerHTML = e.nombre_actividad}
+    if(e.denominacion==null || e.denominacion==""){titulo.innerHTML = e.nombre_actividad}
    
     art.appendChild(titulo);
     art.appendChild(sec);
