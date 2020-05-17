@@ -7,6 +7,8 @@ function createxto(e) {
     let b = document.createElement('b');
     let p2 = document.createElement('p');
     let b2 = document.createElement('b');
+    let p4 = document.createElement('button');
+    sec.id = 'sec' + e.id;
     b.innerHTML = "ID: ";
     p.appendChild(b);
     p.innerHTML += e.id;
@@ -15,6 +17,9 @@ function createxto(e) {
     p2.appendChild(b2);
     p2.innerHTML += e.plantas;
     sec.appendChild(p2);
+    p4.innerHTML = "ver estancias";
+    p4.onclick= function() {estancias(e.id)};
+    sec.appendChild(p4);
     titulo.innerHTML = e.nombre;
     art.appendChild(titulo);
     art.appendChild(sec);
@@ -64,6 +69,43 @@ function createxto3(e) {
     let b2 = document.createElement('b');
     let p3 = document.createElement('p');
     let b3 = document.createElement('b');
+    let p4 = document.createElement('button');
+    sec.id = 'sec' + e.lat;
+    b.innerHTML = "Codigo de instancia: ";
+    p.appendChild(b);
+    p.innerHTML += e.codigo;
+    sec.appendChild(p);
+    b3.innerHTML = "Superficie: ";
+    p3.appendChild(b3);
+    p3.innerHTML += e.superficie;
+    sec.appendChild(p3);
+    b2.innerHTML = "Actividad: ";
+    p2.appendChild(b2);
+    p2.innerHTML += e.nombre_actividad;
+    sec.appendChild(p2);
+    p4.innerHTML = "ver actividad";
+    p4.onclick= function() {actividades(e.id_actividad,e.lat)};
+    sec.appendChild(p4);
+    titulo.innerHTML = e.denominacion;
+    if(e.denominacion==null){titulo.innerHTML = e.nombre_actividad}
+   
+    art.appendChild(titulo);
+    art.appendChild(sec);
+    document.getElementById('flex').appendChild(art);
+}
+
+function createxto4(e) {
+    console.log(e);
+    let art = document.createElement('article');
+    let titulo = document.createElement('h2');
+    let divv = document.createElement('div');
+    let sec = document.createElement('section');
+    let p = document.createElement('p');
+    let b = document.createElement('b');
+    let p2 = document.createElement('p');
+    let b2 = document.createElement('b');
+    let p3 = document.createElement('p');
+    let b3 = document.createElement('b');
     b.innerHTML = "Codigo de instancia: ";
     p.appendChild(b);
     p.innerHTML += e.codigo;
@@ -76,13 +118,14 @@ function createxto3(e) {
     p3.appendChild(b3);
     p3.innerHTML += e.superficie;
     sec.appendChild(p3);
-    titulo.innerHTML = e.denominacion;
-    if(e.denominacion==null){titulo.innerHTML = e.nombre_actividad}
-   
+    titulo.innerHTML = e.id;
     art.appendChild(titulo);
     art.appendChild(sec);
     document.getElementById('flex').appendChild(art);
 }
+
+
+
 
 
 function creaselect(e) {
@@ -218,4 +261,67 @@ function departamentos() {
     });
     return false;
     }
+}
+
+
+
+function actividades(id,lat) {
+    let url = 'https://www.sigua.ua.es/api/pub/actividad/'+id;
+
+    fetch(url, {method:'GET'}).then(function(respuesta){
+        if( respuesta.ok){
+
+            respuesta.json().then(function(datos){
+                console.log(datos);
+                creaactividad(datos[0],lat);
+            });
+        }
+        else {
+           console.log("error");
+        }
+    });
+    return false;
+}
+
+function creaactividad(e,id){
+    
+    console.log(e);
+    let art = document.createElement('article');
+    let titulo = document.createElement('h2');
+    let divv = document.createElement('div');
+    let sec = document.createElement('section');
+    let p = document.createElement('p');
+    let b = document.createElement('b');
+    let p2 = document.createElement('p');
+    let b2 = document.createElement('b');
+    let p3 = document.createElement('p');
+    let b3 = document.createElement('b');
+    let p4 = document.createElement('button');
+    art.id = 'secbo'+id;
+    b.innerHTML = "Admite trabajo: ";
+    p.appendChild(b);
+    p.innerHTML += e.es_habitable;
+    sec.appendChild(p);
+    b3.innerHTML = "Grupo: ";
+    p3.appendChild(b3);
+    p3.innerHTML += e.grupo;
+    sec.appendChild(p3);
+    b2.innerHTML = "ID Actividad: ";
+    p2.appendChild(b2);
+    p2.innerHTML += e.id;
+    sec.appendChild(p2);
+    p4.innerHTML = "cerrar";
+    p4.onclick= function() {borra(id)};
+    sec.appendChild(p4);
+    titulo.innerHTML = e.denominacion;
+    if(e.denominacion==null || e.denominacion==""){titulo.innerHTML = e.nombre_actividad}
+   
+    art.appendChild(titulo);
+    art.appendChild(sec);
+    console.log('sec'+id);
+    document.getElementById('sec'+id).appendChild(art);
+}
+
+function borra(id){
+    document.getElementById('secbo'+id).innerHTML="";
 }
