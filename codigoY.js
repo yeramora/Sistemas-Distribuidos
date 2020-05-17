@@ -8,7 +8,13 @@ function createxto(e) {
     let p2 = document.createElement('p');
     let b2 = document.createElement('b');
     let p4 = document.createElement('button');
-    sec.id = 'sec' + e.id;
+    p.className="textocarta";
+    p2.className="textocarta";
+    sec.className="secarta";
+    art.className="artcarta";
+    titulo.className="h2carta";
+    
+    p4.className="btn";
     b.innerHTML = "ID: ";
     p.appendChild(b);
     p.innerHTML += e.id;
@@ -38,6 +44,12 @@ function createxto2(e) {
     let b2 = document.createElement('b');
     let p3 = document.createElement('p');
     let b3 = document.createElement('b');
+    p.className="textocarta";
+    p2.className="textocarta";
+    p3.className="textocarta";
+    sec.className="secarta";
+    art.className="artcarta";
+    titulo.className="h2carta";
     b.innerHTML = "Estancias: ";
     p.appendChild(b);
     p.innerHTML += e.estancias;
@@ -48,7 +60,7 @@ function createxto2(e) {
     sec.appendChild(p2);
     b3.innerHTML = "Superficie: ";
     p3.appendChild(b3);
-    p3.innerHTML += e.superficie;
+    p3.innerHTML += e.superficie + ' m2';
     sec.appendChild(p3);
     titulo.innerHTML = e.id;
     art.appendChild(titulo);
@@ -70,6 +82,13 @@ function createxto3(e) {
     let p3 = document.createElement('p');
     let b3 = document.createElement('b');
     let p4 = document.createElement('button');
+    p.className="textocarta";
+    p2.className="textocarta";
+    p3.className="textocarta";
+    sec.className="secarta";
+    art.className="artcarta";
+    titulo.className="h2carta";
+    p4.className="btn";
     sec.id = 'sec' + e.lat;
     b.innerHTML = "Codigo de instancia: ";
     p.appendChild(b);
@@ -93,40 +112,6 @@ function createxto3(e) {
     art.appendChild(sec);
     document.getElementById('flex').appendChild(art);
 }
-
-function createxto4(e) {
-    console.log(e);
-    let art = document.createElement('article');
-    let titulo = document.createElement('h2');
-    let divv = document.createElement('div');
-    let sec = document.createElement('section');
-    let p = document.createElement('p');
-    let b = document.createElement('b');
-    let p2 = document.createElement('p');
-    let b2 = document.createElement('b');
-    let p3 = document.createElement('p');
-    let b3 = document.createElement('b');
-    b.innerHTML = "Codigo de instancia: ";
-    p.appendChild(b);
-    p.innerHTML += e.codigo;
-    sec.appendChild(p);
-    b2.innerHTML = "Actividad: ";
-    p2.appendChild(b2);
-    p2.innerHTML += e.nombre_actividad;
-    sec.appendChild(p2);
-    b3.innerHTML = "Superficie: ";
-    p3.appendChild(b3);
-    p3.innerHTML += e.superficie;
-    sec.appendChild(p3);
-    titulo.innerHTML = e.id;
-    art.appendChild(titulo);
-    art.appendChild(sec);
-    document.getElementById('flex').appendChild(art);
-}
-
-
-
-
 
 function creaselect(e) {
     let option = document.createElement('option');
@@ -297,6 +282,12 @@ function creaactividad(e,id){
     let p3 = document.createElement('p');
     let b3 = document.createElement('b');
     let p4 = document.createElement('button');
+    p.className="textocarta";
+    p2.className="textocarta";
+    p3.className="textocarta";
+    sec.className="secarta";
+    titulo.className="h2carta2";
+    p4.className="btn";
     art.id = 'secbo'+id;
     b.innerHTML = "Admite trabajo: ";
     p.appendChild(b);
@@ -319,9 +310,12 @@ function creaactividad(e,id){
     art.appendChild(titulo);
     art.appendChild(sec);
     console.log('sec'+id);
-    document.getElementById('sec'+id).appendChild(art);
+    
+        document.getElementById('sec'+id).appendChild(art);
+    
 }
 
 function borra(id){
-    document.getElementById('secbo'+id).innerHTML="";
+    var local = document.getElementById('secbo'+id);
+        local.parentNode.removeChild(local);
 }

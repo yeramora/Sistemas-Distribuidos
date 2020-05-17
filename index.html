@@ -14,27 +14,27 @@
   <h1>Practica 2 - Sistemas Distribuidos</h1>
   <h2>Ingenieria Multimedia</h2>
   <img src="logo3.png">
-  <section class = "funciones">
-    <h1>Funciones</h1>
-    <div class="text-box">
-      <button onclick="todosedificios();">Edificios</button>
-      
-      <button onclick="datosvolumen();">Datos de Volumen</button> <br>
+  <section class = "funciones" id="seccion">
+    <h1>Peticiones RESTful</h1>
+    <div id="alinea">
+      <div class="elem">
+      <button onclick="todosedificios();" class="btn">Edificios</button>
     </div>
-    <div>
-      <form>
-        <label for="categoria">Parte 3 elegir edificio</label>
+    <div class="elem">
+      <button onclick="datosvolumen();" class="btn">Datos de Volumen</button> <br>
+    </div>
+      <form class="elem">
+        <label for="categoria">Estancias</label>
         <select class="selectcat" name="categoria" id="categoria" onchange="estancias(this.value)">
         <option value="-1" selected>-------</option>  
         </select>
       </form>
-      <form>
-        <label for="nums">Listado de departamentos</label>
+      <form class="elem">
+        <label for="nums">Departamentos</label>
         <input type="number" name="nums" id="numeros" placeholder="max ocupantes" min=0 required></input>
-        <button type="button" onclick="departamentos()">Filtrar</button>
+        <button type="button" onclick="departamentos()" class="btn" id="btnfiltrar">Filtrar</button>
       </form>
     </div>
-    
     <div id="flex">
 
     </div>
