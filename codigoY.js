@@ -209,9 +209,11 @@ function estancias(id) {
             respuesta.json().then(function(datos){
                console.log(datos.features);
                let cosa = datos.features.length;
-                if(datos.features.length>20) { cosa=20; }
                 for(let i = 0; i<cosa;i++){
-                    createxto3(datos.features[i].properties);
+                    if(datos.features[i].properties.denominacion!=null ){
+                        createxto3(datos.features[i].properties);
+                    }
+                   
                 }
                }
             );
